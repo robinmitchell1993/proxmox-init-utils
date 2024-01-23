@@ -10,10 +10,10 @@ echo "========================================"
 apt update && apt upgrade -y
 apt install ipmitool -y
 apt install git -y
-git clone https://github.com/robinmitchell1993/proxmox-init-utils/backup_identify.py
-mv /proxmox-init-utils/backup_identify.py /root/
-mv /proxmox-init-utils/proxmox-part2.sh /root/
-mv /proxmox-init-utils/power-man.sh /root/
+git clone https://github.com/robinmitchell1993/proxmox-init-utils/
+mv proxmox-init-utils/backup_identify.py /root/
+mv proxmox-init-utils/proxmox-part2.sh /root/
+mv proxmox-init-utils/power-man.sh /root/
 
 
 # =================================================================================================
@@ -97,7 +97,7 @@ echo update-initramfs -u
 # Prep for script part 2 to run
 chmod a+x /root/proxmox-part2.sh
 crontab -l > mycron
-echo "@reboot /root/proxmox-part2.sh" >> mycron
+echo "@reboot /bin/bash /root/proxmox-part2.sh" >> mycron
 crontab mycron
 rm mycron
 

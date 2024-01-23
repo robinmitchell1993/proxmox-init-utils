@@ -94,11 +94,4 @@ rm pci_devices.txt
 
 echo update-initramfs -u
 
-# Prep for script part 2 to run
-chmod a+x /root/proxmox-part2.sh
-crontab -l > mycron
-echo "@reboot /bin/bash /root/proxmox-part2.sh" >> mycron
-crontab mycron
-rm mycron
-
 reboot now

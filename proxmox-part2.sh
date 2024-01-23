@@ -2,10 +2,6 @@
 set -u
 
 
-# Remove part 2 script from cron
-crontab -u mobman -l | grep -v '@reboot /bin/bash /root/proxmox-part2.sh' | crontab -u mobman -
-
-
 # =================================================================================================
 # Mount the backup drive
 #

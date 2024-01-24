@@ -6,9 +6,11 @@ set -u
 # Mount the backup drive
 #
 mkdir /mnt/Backup
+mkdir /mnt/Storage
 mount /dev/sdb1 /mnt/Backup
+mount /dev/sdc1 /mnt/Storage
 pvesm add dir Backup --path /mnt/Backup --content backup
-
+pvesm add dir Storage --path /mnt/Storage --content Storage
 
 # =================================================================================================
 # Restore each VM

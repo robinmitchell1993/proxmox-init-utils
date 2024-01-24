@@ -14,6 +14,7 @@ git clone https://github.com/robinmitchell1993/proxmox-init-utils/
 mv proxmox-init-utils/backup_identify.py /root/
 mv proxmox-init-utils/proxmox-part2.sh /root/
 mv proxmox-init-utils/power-man.sh /root/
+mv proxmox-init-utils/network-keep-alive.sh /root/
 
 
 # =================================================================================================
@@ -24,6 +25,7 @@ echo "ADDING POWER MAN CRON JOB"
 echo "========================================"
 crontab -l > mycron
 echo "* * * * * /bin/bash /root/power-man.sh >> /var/log/power-man.log 2&>1" >> mycron
+echo "* * * * * /bin/bash /root/network-keep-alive.sh" >> mycron
 crontab mycron
 rm mycron
 
